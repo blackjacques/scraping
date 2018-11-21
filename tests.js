@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const toolPage  = 'file:///C:/Users/Rob/Training/scraping/tests/HQ%20Finance%20Deposits(CPS)%20__%20Tools.html';
-const firstBank = 'Barclays'; 
-const lastBank  = 'First Republic Bank';
+const bank1stCharStart = 'P'; 
+const banklastCharStart  = 'V';
 const pauseExeptions = ['American Express National Bank', 'BBVA Compass (Rate in CA)', 'TTIA Direct'];
 
 function isSorted(arr) {
@@ -28,23 +28,22 @@ async function run() {
     //await toolTab.waitForNavigation(); 
     await toolTab.waitFor(3000);
     
-    console.log('Sorting banks by name');
+    //console.log('Sorting banks by name');
     //sort by bank name
-    await toolTab.click('#rate-table > thead > tr.table_header > th.merch-name.header');
-    await toolTab.waitFor(10000);
+    //await toolTab.click('#rate-table > thead > tr.table_header > th.merch-name.header');
+    //await toolTab.waitFor(10000);
 
     console.log('Fetching relevant banks');
-
-    
-    //get first bank
-    const banks = await toolTab.$$eval('#rate-table tbody tr', (trs, firstBank, lastBank) => {
+    //get relevant bank
+    const banks = await toolTab.$$eval('#rate-table tbody tr', (trs, bank1stCharStart, banklastCharStart) => {
         return trs.filter( tr => {
             var bankName = tr.querySelector('td.merch-name').textContent;
             var updateFrequency = tr.querySelector('td.update_frequency_txt').textContent;
-            return bankName >= firstBank && bankName <= lastBank
+            var bank1stChar = bankName.charAt(0).toUpperCase();
+            return bank1stChar >= bank1stCharStart && bank1stChar <= banklastCharStart
                    && (updateFrequency.toLowerCase !== 'paused' || pauseExeptions.includes(bankName));
-        });
-    }, firstBank, lastBank, pauseExeptions);
+        }).map(banks => banks.outerHTML);
+    }, bank1stCharStart, banklastCharStart, pauseExeptions);
     
     //console.log(banks);
     console.log(`Got ${banks.length} banks.`);
