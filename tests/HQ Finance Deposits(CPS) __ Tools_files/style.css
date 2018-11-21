@@ -1,0 +1,50 @@
+.action{width:100px !important;}
+.merch-id{width:90px;}
+.merch-name, .merch-img, .merch-link{ width: 180px; }
+.merch-link span {display:inline-block; width:180px; word-wrap:break-word;}
+.rate-id{width:70px;}
+.rate-apr{width:50px; text-align: right;}
+.rate-apy{width:50px; text-align: right;}
+.min-dep{width:130px; text-align: right;}
+.min-bal,.max-bal{width:130px; text-align: right;}
+.rate-type{width:90px;}
+.rate-str{width:80px; text-align: left;}
+.rate-term{width:80px; text-align: right;}
+.note{text-align:left;}
+.promo-status{text-align:center;font-size:14px;font-weight:bold;}
+.promo-status.header {font-weight:normal;}
+.hidden{display:none;}
+TD INPUT{position:relative; padding:0;margin:0;width:60px;display:inline;text-align:right;}
+SELECT{ width: 80px; }
+TD.merch-name INPUT, TD.merch-img INPUT, TD.merch-link INPUT, TD.paid-link INPUT, TD.promo INPUT { width: 170px; text-align: left; }
+TD.promo-start INPUT, TD.promo-end INPUT { width:70px; }
+TD.note INPUT { width: 170px; text-align: left; }
+TD.rate-str INPUT { text-align: left; }
+TH{ text-align: left !important; }
+.add{ background: #FFF; }
+.add td {padding:4px 4px;}
+#overlay, #loading {
+    top: 100px;
+    left: 50%;
+    position: absolute;
+    margin-left: -100px;
+    width: 300px;
+    text-align: center;
+    display: none;
+    margin-top: -10px;
+    background: #000;
+    color: #FFF;
+    font-size:30px;
+    padding:10px;
+    opacity:1;
+    z-index:1;
+}
+#loading {
+    display:block;
+}
+.showOnLoad {display:none;}
+#container_deposits_rate_tool { opacity:0.2; }
+#container
+{
+    overflow: inherit;
+}
