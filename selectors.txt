@@ -6816,6 +6816,67 @@ https://www.populardirect.com/products/cds#60-month, body > section.primary-cont
       </div>
     </div>
   </div>
+ http://www.providentcu.org/index.asp?i=checking&search=super, #features > div:nth-child(3), <div class="sectionContent" style="display: block;"><p tabindex="-1">All Provident Credit Union checking accounts include these great features:</p>
+<p>
+	<a href="//timetrade.com/app/providentcu/workflows/pcu001/schedule/?appointmentTypeGroupId=accounts.services&amp;appointmentTypeId=checking.accounts" target="_blank" onclick="popupProvWin(this.href,800,720); pageTracker._trackPageview('/checking_description/appointment'); return false;" data-aesra-score="linkNewWindowWarning:1;">Schedule&nbsp;Appointment<span data-ae-pem-ignore="true" style="display: none;" class="ae-compliance-indent ae-new-window"> Opens a New Window. </span></a>
+</p>
+<ul class="bulletblue">			
+	<li>Free Visa<sup class="sup">�</sup> <a href="/providentIF.asp?i=checkingResources&amp;search=checkCards" target="MiddleContent">debit card</a> that can be used with your <a href="/providentIF.asp?i=wallet" target="MiddleContent">digital wallet</a> including: Apple Pay, Google Pay�, Samsung Pay, and Visa Checkout.</li>
+	<li>Surcharge-free <a href="/providentIF.asp?i=ATMs" target="MiddleContent" aria-label="atm network locations">ATM network</a> that includes over 30,000 CO-OP� and 23,000 MoneyPass� <a href="/providentIF.asp?i=ATMs" target="MiddleContent" aria-label="atm network locations" role="none">locations</a></li>
+	<li>Free online access through <a href="/providentIF.asp?i=AboutOnlineBanking" target="MiddleContent">online banking</a></li> 
+	<li>Free online bill payment with <a href="/providentIF.asp?i=AboutOnlineBanking&amp;search=billmanager" target="MiddleContent">Bill Manager</a></li>
+	<li>Use <a href="/providentIF.asp?i=AboutOnlineBanking&amp;search=edeposit" target="MiddleContent">e-Deposit</a> to make check deposits with your scanner or mobile phone (<a href="#" onclick="top.efaqIF('Q132570406400019','440','380'); return false;" class="efaqlinks" role="button" aria-label="e-deposit eligibility criteria">Eligibility criteria</a>)</li>
+	<li>No per-check fees</li>
+	<li>No fee travelers checks, official checks, and money orders*</li>
+	<li><a href="/risk-free/Zero_Liability.html" onclick="top.popDetails(this.href,'iframe',540,680); return false;" target="_blank" data-aesra-score="linkNewWindowWarning:1;">Zero Liability Fraud Protection Guarantee<span data-ae-pem-ignore="true" style="display: none;" class="ae-compliance-indent ae-new-window"> Opens a New Window. </span></a></li>
+	<li><a href="/providentIF.asp?i=overdraft" target="MiddleContent">Overdraft Protection</a>: There is <b>no fee</b> associated with this service for most checking accounts at Provident. (Restrictions apply. <a href="/providentIF.asp?i=overdraft" target="MiddleContent" aria-label="overdraft protection details" aria-hidden="true">Click for details</a>.)</li>
+	<li><a href="/providentIF.asp?i=overdraft" target="MiddleContent">Courtesy Pay</a>: If you don't have enough funds in your overdraft accounts, Provident may still approve your overdrafts within your available Courtesy Pay limit. There is a <a href="/AFrames/Directory/ServiceCharges.asp#courtesyPayCheck" onclick="popupProvWin(this.href); return false;" aria-label="courtesy pay fee">fee</a> for each overdrawn item. (Restrictions apply. Not available for Youth Checking, Business Checking, and Health Savings Accounts. <a href="/providentIF.asp?i=overdraft" target="MiddleContent" aria-label="overdraft protection details" aria-hidden="true">Click for details</a>.)</li>
+</ul>
+
+<h4 aria-level="2">Compare Provident Checking Accounts</h4>
+<p>Select up to three accounts and compare their rates and features to choose the account that's right for you.</p>
+<div class="ccCompare">
+	<button class="compare ae-button ae-form-field" id="srcAcc" onclick="checkState(this)" role="checkbox" aria-checked="false" data-ae-blurbtype="button">
+		<img src="/NewGraphics/2013/check-compare/no-fees.svg" alt="" class="ae-exclude">
+		<label for="srccheck" class="ae-label">
+			<input type="checkbox" name="srccheck" id="srccheck" class="ae-form-field">
+			<span>Super Reward Checking</span>
+		</label>
+	</button>
+	<button class="compare ae-button ae-form-field" id="pvAcc" onclick="checkState(this)" role="checkbox" aria-checked="false" data-ae-blurbtype="button">
+		<img src="/NewGraphics/2013/check-compare/free-checks.svg" alt="" class="ae-exclude">
+		<label for="pvcheck" class="ae-label">
+			<input type="checkbox" name="pvcheck" id="pvcheck" class="ae-form-field">
+			<span>Provident Checking</span>
+		</label>
+	</button>
+	<button class="compare ae-button ae-form-field" id="bcAcc" onclick="checkState(this)" role="checkbox" aria-checked="false" data-ae-blurbtype="button">
+		<img src="/NewGraphics/2013/check-compare/briefcase.svg" alt="" class="ae-exclude">
+		<label for="bccheck" class="ae-label">
+			<input type="checkbox" name="bccheck" id="bccheck" class="ae-form-field">
+			<span>Business Checking</span>
+		</label>
+	</button>
+	<button class="compare ae-button ae-form-field" id="ycAcc" onclick="checkState(this)" role="checkbox" aria-checked="false" data-ae-blurbtype="button">
+		<img src="/NewGraphics/2013/check-compare/dividens.svg" alt="" class="ae-exclude">
+		<label for="yccheck" class="ae-label">
+			<input type="checkbox" name="yccheck" id="yccheck" class="ae-form-field">
+			<span>Youth Checking</span>
+		</label>
+	</button>
+	<button class="compare ae-button ae-form-field" id="sfcAcc" onclick="checkState(this)" role="checkbox" aria-checked="false" data-ae-blurbtype="button">
+		<img src="/NewGraphics/2013/check-compare/atm.svg" alt="" class="ae-exclude">
+		<label for="sfccheck" class="ae-label">
+			<input type="checkbox" name="sfccheck" id="sfccheck" class="ae-form-field">
+			<span>Simply Free Checking</span>
+		</label>
+	</button>
+</div>
+<button id="comparisonButton" disabled="" class="ae-button ae-form-field" data-ae-blurbtype="button">Compare</button>
+		
+
+</div>
+
 https://www.presidential.com/personal-banking/checking-savings/rates-yields, #content > section.three-fourth, <section class="three-fourth">
             <div class="page-header personal-banking">
                 <h1 style="color:#FFFFFF; padding:30px 0 0 30px;">Rates &amp; Yields</h1>
@@ -9143,95 +9204,609 @@ None<br>
 		</div>
 	</div>
 </section>
-https://radiusbank.com/, #post-59 > main > section:nth-child(2) > div > div > div.grid__col--12 > div > div.fancy-tabs__content > div > div.grid__col--5.grid__offset--1 > ul, <ul class="clean fancy-tabs__text">
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/11/debitcardSecurity.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Radius Card App</h3>
-											<p>Misplacing your debit card happens—so does blowing through your budget. We have you covered with the Radius Card app. Turn your debit card on/off, set up custom transaction alerts, and enable location-based restrictions in seconds.</p>
-<p><a href="/personal/radius-card">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/freeATM.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Unlimited ATM Fee Rebates</h3>
-											<p>It’s your money—you shouldn’t have to pay to use it. Charged a fee by another bank? Don’t worry! Radius Hybrid Checking, Superhero Checking, and Radius Checking all receive unlimited&nbsp;rebates for any ATM fees you’re charged.</p>
-<p><a href="/personal/compare-checking">Learn More</a></p>
-										</li>
-																			<li class="active">
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/savings.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">High-Yield Savings </h3>
-											<p>Earn up to 1.96% APY on balances of $25,000 &amp; up and meet your savings goals faster. Don’t quite have $25,000? Radius High-Yield Savings still earns 1.50% APY on balances of $2,500 to $24,999.99.</p>
-<p><a href="/personal/high-yield-savings">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/tailored-checking.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Hybrid Checking</h3>
-											<p>Get a free interest checking account that combines the flexibility of a checking account with the high-interest earning potential of savings account, all in one place.</p>
-<p><a href="/personal/hybrid-checking">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/financial.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Radius Rewards</h3>
-											<p>Get rewarded for everyday purchases and earn 1.00% cash back with Radius Checking every time you use your Radius Bank debit card.</p>
-<p><a href="/personal/radius-rewards">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/donate.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Superhero Checking</h3>
-											<p>Help March of Dimes make a difference one dollar at a time. Put your cape on and open a Superhero Checking account to earn valuable donations for March of Dimes through everyday spending and saving.</p>
-<p><a href="/personal/superhero-checking">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/tailored-checking.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Tailored Checking</h3>
-											<p>Get unlimited transactions with no upcharge, free ATMs worldwide, and earn 0.75% APY on balances of $10,000 &amp; up. No documents needed. Apply online in minutes and get back to running your business.</p>
-<p><a href="/business/tailored-checking">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/manageMoney.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Integrated Finance Tools</h3>
-											<p>Create a budget, track your spending, analyze trends, develop an action plan to pay off debts, and calculate your net worth—all included with personal Online &amp; Mobile Banking.</p>
-<p><a href="/personal/tools">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/mobileWallets.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Pay on the go with mobile wallets</h3>
-											<p>Add your Radius debit card to Apple Pay®, Google Pay™, and Samsung Pay. When you’re ready to pay, open the app, tap your phone to compatible registers and complete your purchase!</p>
-<p><a href="/mobile-wallets">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/10/mobileDeposit.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Deposit checks with the Radius Mobile app</h3>
-											<p>Securely deposit checks into your checking or savings account with just a few taps. Endorse your check with “Mobile Deposit Only” on the back, take a picture, and you’re all set!</p>
-<p><a href="/personal/mobile-deposit">Learn More</a></p>
-										</li>
-																			<li>
-											<i class="icon-placeholder">
-												<img src="https://radiusbank.com/wp-content/uploads/2018/11/venmo.svg" class="attachment-full size-full" alt="">
-											</i>
-											<h3 class="font--alpha">Pay a Friend—now with Venmo</h3>
-											<p>Whether you’re splitting lunch with your co-workers or chipping in for a group birthday gift, request and send money using Venmo in Online &amp; Mobile Banking.</p>
-<p><a href="/personal/pay-a-friend">Learn More</a></p>
-										</li>
+https://radiusbank.com/personal/cd-rates/, .fancy-table, <ul class="clean fancy-table fancy-table--regular">
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			Account Type<sup>1</sup>
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			Minimum Balance To Open
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			Minimum Balance To Earn APY
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			Interest Rate
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			APY<sup>2</sup>
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																			Apply Online
+																	</div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			3 Month CD
+
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$1,000
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$1,000
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			0.85%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			0.85%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.36 37.36"><title>icon-close</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-close-1" d="M36.34,31.39,23.63,18.68,36.34,6a3.5,3.5,0,0,0-5-4.95L18.68,13.73,6,1A3.5,3.5,0,0,0,1,6l12.7,12.7L1,31.39a3.5,3.5,0,0,0,5,5l12.7-12.71L31.39,36.34a3.5,3.5,0,0,0,5-5Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			6 Month CD
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$1000
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$1000
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			0.95%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			0.95%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.36 37.36"><title>icon-close</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-close-1" d="M36.34,31.39,23.63,18.68,36.34,6a3.5,3.5,0,0,0-5-4.95L18.68,13.73,6,1A3.5,3.5,0,0,0,1,6l12.7,12.7L1,31.39a3.5,3.5,0,0,0,5,5l12.7-12.71L31.39,36.34a3.5,3.5,0,0,0,5-5Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			9 Month CD
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$1000
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$1000
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			1.25%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			1.25%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.36 37.36"><title>icon-close</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-close-1" d="M36.34,31.39,23.63,18.68,36.34,6a3.5,3.5,0,0,0-5-4.95L18.68,13.73,6,1A3.5,3.5,0,0,0,1,6l12.7,12.7L1,31.39a3.5,3.5,0,0,0,5,5l12.7-12.71L31.39,36.34a3.5,3.5,0,0,0,5-5Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			1 Year CD
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			1.54%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			1.55%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 35.08"><title>icon-check</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-check-1" d="M36.54.72a3.4,3.4,0,0,0-4.94.83l-16.44,24-9-9.8a3.37,3.37,0,0,0-5-.16A3.9,3.9,0,0,0,1,20.93S12,33.14,13.54,34.36a3.4,3.4,0,0,0,4.94-.83L37.32,6A3.91,3.91,0,0,0,36.54.72Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			18 Month CD
+
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			1.59%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			1.60%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 35.08"><title>icon-check</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-check-1" d="M36.54.72a3.4,3.4,0,0,0-4.94.83l-16.44,24-9-9.8a3.37,3.37,0,0,0-5-.16A3.9,3.9,0,0,0,1,20.93S12,33.14,13.54,34.36a3.4,3.4,0,0,0,4.94-.83L37.32,6A3.91,3.91,0,0,0,36.54.72Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			2 Year CD
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			1.69%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			1.70%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.36 37.36"><title>icon-close</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-close-1" d="M36.34,31.39,23.63,18.68,36.34,6a3.5,3.5,0,0,0-5-4.95L18.68,13.73,6,1A3.5,3.5,0,0,0,1,6l12.7,12.7L1,31.39a3.5,3.5,0,0,0,5,5l12.7-12.71L31.39,36.34a3.5,3.5,0,0,0,5-5Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			3 Year CD
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			1.84%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			1.85%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 35.08"><title>icon-check</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-check-1" d="M36.54.72a3.4,3.4,0,0,0-4.94.83l-16.44,24-9-9.8a3.37,3.37,0,0,0-5-.16A3.9,3.9,0,0,0,1,20.93S12,33.14,13.54,34.36a3.4,3.4,0,0,0,4.94-.83L37.32,6A3.91,3.91,0,0,0,36.54.72Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			4 Year CD
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			1.94%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			1.95%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.36 37.36"><title>icon-close</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-close-1" d="M36.34,31.39,23.63,18.68,36.34,6a3.5,3.5,0,0,0-5-4.95L18.68,13.73,6,1A3.5,3.5,0,0,0,1,6l12.7,12.7L1,31.39a3.5,3.5,0,0,0,5,5l12.7-12.71L31.39,36.34a3.5,3.5,0,0,0,5-5Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+					<li>
+									<input type="checkbox" class="fancy-table__mobile-toggle">
+								<ul class="clean">
+																		<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Account Type<sup>1</sup>
+										</div>
+									
+																			5 Year CD
+																	</div>
+																	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.54 56.96"><title>icon-chevron-right</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path d="M21.66,28.48h0L.39,6.33a1.45,1.45,0,0,1,0-2L4.22.43a1.38,1.38,0,0,1,2,0l26,27.05a1.31,1.31,0,0,1,.38,1,1.41,1.41,0,0,1-.38,1l-26,27.05a1.37,1.37,0,0,1-2,0l-3.8-3.9a1.45,1.45,0,0,1,0-2Z"></path></g></g></svg>															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Open
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Minimum Balance To Earn APY
+										</div>
+									
+																			$500
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Interest Rate
+										</div>
+									
+																			2.18%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											APY<sup>2</sup>
+										</div>
+									
+																			2.20%
+																	</div>
+															</li>
+													<li>
+								<div>
+																			<div class="fancy-table__mobile-label">
+											Apply Online
+										</div>
+									
+																				<span class="fancy-table__icon fancy-table__icon--no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.36 37.36"><title>icon-close</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_2-2" data-name="Layer 2"><path class="icon-close-1" d="M36.34,31.39,23.63,18.68,36.34,6a3.5,3.5,0,0,0-5-4.95L18.68,13.73,6,1A3.5,3.5,0,0,0,1,6l12.7,12.7L1,31.39a3.5,3.5,0,0,0,5,5l12.7-12.71L31.39,36.34a3.5,3.5,0,0,0,5-5Z"></path></g></g></svg><span>
+
+																	</span></span></div>
+															</li>
+															</ul>
+			</li>
+			</ul>
 https://www.raymondfederalbank.com/#Savings, #main > article > div.zone.zone-after-content > article:nth-child(1) > div > div > div:nth-child(2) > div.col-sm-6 > table, <table class="table table-striped" style="margin-left: auto; margin-right: auto;"><caption>Today's Featured <br> <em>5 Year CD</em></caption>
 <thead>
 <tr><th scope="col">Principal</th><th scope="col">Rate</th><th scope="col">APY</th></tr>
