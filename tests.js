@@ -1596,7 +1596,8 @@ const pauseExeptions = [
     'BBVA Compass (Rate in CA)', 
     'TTIA Direct'
 ];
-
+let rowsMoved   = 0;
+let rowColor    = '';
 let missingUrls = 0;
 
 async function run() {
@@ -1648,14 +1649,33 @@ async function run() {
     }
 
     */
+
+   function getBankRows(banks, bankName) {
+        let bankRows = [], i = 0;
+        do {
+            bankRows.push(banks[i])
+        } while (bankName == banks[++i].name);
+    } 
+
+    async function changeRowColor(rowId, url, bgColor) {
+        return await toolTab.evaluate((id, url, bgColor) => { 
+            let rows = $(`tr#${id}`).siblings(`:contains("${url}")`).andSelf();
+
+            rows.children('td').css('background-color', bgColor);
+
+            return rows.map(row => row.id);
+        }, rowId, url, bgColor);
+    }
+
     async function moveRows(rowId, url, firstRowId, bgColor) {
-        await toolTab.evaluate((id, url, firstRowId, bgColor) => { 
-            debugger;
-            $('tr#'+id)
-                .siblings(':contains("'+url+'")')
-                .insertBefore($('tr#'+firstRowId))
-                    .children('td')
-                    .css('background-color', bgColor);
+        return await toolTab.evaluate((id, url, firstRowId, bgColor) => { 
+            let rows = $(`tr#${id}`).siblings(`:contains("${url}")`).andSelf();
+
+            rows.insertBefore($(`tr#${firstRowId}`))
+                .children('td')
+                .css('background-color', bgColor);
+
+            return rows.length;
         }, rowId, url, firstRowId, bgColor);
     }
 
@@ -1666,39 +1686,55 @@ async function run() {
         const bankTab = await browser.newPage();
 
         logger.info('Fetching relevant banks');
-        //get relevant bank
-        const banks = await toolTab.$$eval('#rate-table tbody tr', (trs, bank1stCharStart, banklastCharStart) => {
+        
+        //const firstRowId = await toolTab.$$eval('#rate-table tbody tr:first-of-type', tr => tr[0].id);
+
+        const banks = await toolTab.$$eval('#rate-table tbody tr', (trs, bank1stCharStart, banklastCharStart, pauseExeptions) => {
             return trs.filter( tr => {
                 let bankName = tr.querySelector('td.merch-name').textContent;
                 let updateFrequency = tr.querySelector('td.update_frequency_txt').textContent;
                 let bank1stChar = bankName.charAt(0).toUpperCase();
                 
-                return bank1stChar >= bank1stCharStart && bank1stChar <= banklastCharStart
-                    && (updateFrequency.toLowerCase !== 'paused' || pauseExeptions.includes(bankName));
-            }).map(bank => { 
+                if ( bank1stChar >= bank1stCharStart && bank1stChar <= banklastCharStart
+                    && (updateFrequency.toLowerCase !== 'paused' || pauseExeptions.includes(bankName)) ) {
+            
+                    return true;
+                }
+                else {
+                    $(tr).remove();
+                }
+            }).map(bank => {
                 return {
-                    rowid: bank.getAttribute('id'),
-                    name:  bank.querySelector('td.merch-name').textContent,
-                    note:  bank.querySelector('td.note').textContent,
-                    url:   bank.querySelector('.merch-link > span').textContent
+                    id:   bank.id,
+                    name: bank.querySelector('td.merch-name').textContent,
+                    url:  bank.querySelector('td.merch-link').textContent,
+                    note: bank.querySelector('td.note').textContent
                 }
             });
         }, bank1stCharStart, banklastCharStart, pauseExeptions);
         
-        logger.info('Got %d banks.', banks.length);
+        //console.log(banks);
 
+        //logger.info('Got %d banks.', banks.length);
+
+        /*
         //let $ = cheerio.load(rows.join(''));
         //let $tr = $('tr');
         const firstRowId = await toolTab.$$eval('#rate-table tbody tr:first-of-type', tr => tr[0].id);
-
-        for(let bank of banks) {
+        */
+       const firstRowId = banks[0].id;
+        //for(let bankId of banks) {
+        for (let i=0; i<banks.length; i++) {
+            let bank = banks[i];
             if (path.extname(bank.url) === '.pdf') {
                 //don't check pdfs for phase 1
-                moveRows(bank.rowid, bank.url, firstRowId, '#AED6F1');
+                //rowsMoved = await moveRows(bank.rowid, bank.url, firstRowId, '#AED6F1');
+                //i += rowsMoved - 1;
             }
             else if (bank.note.includes('Rate collected within')) {
                 //don't process zipcodes and states for phase 1
-                moveRows(bank.rowid, bank.url, firstRowId, '#A9DFBF');
+                //rowsMoved = await moveRows(bank.rowid, bank.url, firstRowId, '#A9DFBF');
+                //i += rowsMoved - 1;
             } else {
                 //check for changes
                 let bankInfo  = data[bank.url];
@@ -1720,32 +1756,4 @@ async function run() {
                         logger.info(`Clicking save link.`);
                         await toolTab.click(linkSelector);
                         await toolTab.waitFor(3000);
-                        await toolTab.evaluate((id, linkSelector) => { 
-                            $('tr#'+id).children('td').css('background-color', bgColor);
-                            $(linkSelector).remove();
-                        }, rowId, linkSelector);
-                        //move all of the rows with the same link to the top of the page
-                        moveRows(bank.rowid, bank.url, firstRowId, '#566573');
-                    }
-                    else {
-                        logger.info(`${bank.name} has changed!`);
-                        moveRows(bank.rowid, bank.url, firstRowId, '#566573');
-                    }
-                } 
-                else {
-                    missingUrls++;
-                    logger.warn('No record of %s in db. Add it!', bank.name);
-                    continue;
-                }
-            }
-        };
        
-        logger.info('Processing completed. Of %d bank rows, %d URLs were missing from the DB.', banks.length, missingUrls);
-
-   // con.end();
-
-    //setTimeout(async () => {
-    //    await browser.close();
-    //}, 60000 * 4);
-}
-run();
