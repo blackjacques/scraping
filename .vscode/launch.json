@@ -7,7 +7,13 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "run test",
+            "program": "${workspaceFolder}\\tests.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "run for real",
             "program": "${workspaceFolder}\\index.js"
         }
     ]
