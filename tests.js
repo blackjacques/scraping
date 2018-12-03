@@ -1,18 +1,3 @@
-const data = {
-    "file:///C:/Users/Rob/Training/scraping/tests/data/no_match.html": {
-        "selector": '#content',
-        "content": `This won't match!`
-    },
-    "file:///C:/Users/Rob/Training/scraping/tests/data/no_match.html": {
-        "selector": '#content',
-        "content": `This won't match!`
-    },
-    "file:///C:/Users/Rob/Training/scraping/tests/data/match.html": {
-        "selector": '#content',
-        "content": `This will match!`
-    }
-};
-
 //https://medium.com/@e_mad_ehsan/getting-started-with-puppeteer-and-chrome-headless-for-web-scrapping-6bf5979dee3e
 //https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md
 //https://codeburst.io/a-guide-to-automating-scraping-the-web-with-javascript-chrome-puppeteer-node-js-b18efb9e9921
@@ -26,18 +11,16 @@ const data = {
 //zip codes
 
 const puppeteer = require('puppeteer');
-//const mysql     = require('mysql');
-//const cheerio   = require('cheerio');
-const toolPage  = 'file:///C:/Users/Rob/Training/scraping/tests/HQ%20Finance%20Deposits(CPS)%20__%20Tools.html';
-//const creds     = require('./creds.json');
-const path = require('path');
-const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, label, printf } = format;
+const mysql = require('mysql');
+const cheerio = require('cheerio');
+const loginPage = 'https://hqfinance.quinstreet.com/qsauthentication/login/';
+const toolPage  = 'https://hqfinance.quinstreet.com/tools/deposits-rate-tool';
+const creds     = require('./creds.json');
+
 //dom element selectors
 const usernameSelector = '#login_form input[name="username"]';
 const passwordSelector = '#password';
 const buttonSelector   = '#login_button'; 
-const nameHeaderSelector = '#rate-table > thead > tr.table_header > th.merch-name.header';
 const rateTableRows    = '#rate-table > tbody > tr';
 const bank1stCharStart = 'P'; 
 const banklastCharStart  = 'V';
@@ -46,33 +29,42 @@ const pauseExeptions = [
     'BBVA Compass (Rate in CA)', 
     'TTIA Direct'
 ];
-let rowsMoved   = 0;
-let rowColor    = '';
-let missingUrls = 0;
+let json = require('./page_content.json');
+let data = {};
+json.RECORDS.forEach(bank => {
+    data[bank.url] = {
+        selector: bank.selector,
+        text: bank.text 
+    };
+});
+let missingBanks = [];
+let banksChecked = 0;
 
-async function run() {
-    const logger = createLogger({
-        transports: [
-          new transports.Console(),
-          new transports.File({ filename: 'deposit_rates.log' })
-        ],
-        format: format.splat()
-    });
+const run = async () => {
 
-    logger.log('info', 'Process started.');
+    console.log('info', 'Process started.');
     const browser = await puppeteer.launch({
         headless: false //,
         //slowMo: 250 // slow down by 250ms
     });
-
+    console.log('Loading Tool page HTML');
     const toolTab = await browser.newPage();
     await toolTab.setViewport({ width: 1566, height: 768});
+    await toolTab.goto(loginPage); 
+    await toolTab.waitFor(3000);
 
-    logger.info('Going to Tool page');
-    await toolTab.goto(toolPage);
-    await toolTab.waitFor(2000);
+    console.log('Logging in');
+    await toolTab.click(usernameSelector);
+    await toolTab.keyboard.type(creds.tool.username);
 
-    logger.info('Sorting Banks');
+    await toolTab.click(passwordSelector);
+    await toolTab.keyboard.type(creds.tool.password);
+
+    await toolTab.click(buttonSelector);
+
+    await toolTab.waitForNavigation(); 
+
+    console.log('Sorting Banks');
 
     await toolTab.click(nameHeaderSelector);
     await toolTab.waitFor(3000);
@@ -81,232 +73,165 @@ async function run() {
     await toolTab.click(nameHeaderSelector);
     await toolTab.waitFor(3000);
 
-    //let content = await toolTab.content();
-    //let $ = cheerio.load(content);
+    const escapeXpathString = str => {
+        const splitedQuotes = str.replace(/'/g, `', "'", '`);
+        return `concat('${splitedQuotes}', '')`;
+      };
 
-    /*
-    logger.log('Connecting to mysql');
-    const con = mysql.createConnection({
-        host: "localhost",
-        user: creds.db.username,
-        password: creds.db.password
-    });
-
-    async function moveRow(rowId, firstRowId, bgColor) {
-        await toolTab.evaluate((id, firstRowId, bgColor) => { 
-            $('#'+id).insertBefore($('tr#'+firstRowId)).children('td').css('background-color', bgColor);
-        }, rowId, firstRowId, bgColor);
-    }
-
-    async function moveRows(rowId, url, firstRowId, bgColor) {
-        return await toolTab.evaluate((id, url, firstRowId, bgColor) => { 
-            let rows = $(`tr#${id}`).siblings(`:contains("${url}")`).andSelf();
-
-            rows.insertBefore($(`tr#${firstRowId}`))
-                .children('td')
-                .css('background-color', bgColor);
-
-            return rows.length;
-        }, rowId, url, firstRowId, bgColor);
-    }
-
-    async function resaveBankInfo(rowId) {
-        let processedIds  = [], i = 0;
-
-        do {
-            //let linkSelector = `#${rowId}-controls > a:first-of-type`;
-            await toolTab.$x(`//*[@id="${rowId}-controls"]/a[text()="Edit"]`).then(async elts => {
-                console.log(`Clicking edit link.`);
-                let editLink = elts[0];
-                await editLink.click();
-                await editLink.dispose();
-
-                //await toolTab.waitFor(3000);
-                await toolTab.waitForXPath(`//*[@id="${rowId}-controls"]/a[text()="Save"]`).then(async saveLink => {
-                    console.log(`Clicking save link.`);
-                    await saveLink.click();
-                    await saveLink.dispose();
-                    await toolTab.waitForXPath(`//*[@id="${rowId}-controls"]/a[text()="Edit"]`).then(async editLink => {
-                        await editLink.dispose();
-                        await toolTab.evaluate((id) => { 
-                            $('tr#'+id).remove();
-                        }, rowId); //, linkSelector);
-                    });
-                });
-            });
-        } while (bankName == banks[++i].name);
-
-        return processedIds;
-    }
-    */
-
-   function getBankRows(banks, bankName) {
-        let bankRows = [], i = 0;
-        do {
-            bankRows.push(banks[i])
-        } while (bankName == banks[++i].name);
-    } 
-
-    function getRemainingBanks(banks, bankName, processedIds) {
-        let bankRows = [], i = 0;
-        do {
-            if (!processedIds.includes(banks[i].id)) bankRows.push(banks[i])
-        } while (bankName == banks[++i].name);
-        return bankRows;
-    } 
-    
-    async function changeRowColor(rowId, url, bgColor) {
-        return await toolTab.evaluate((id, url, bgColor) => { 
-            let processedIds = [], 
-                rows         = $(`tr:contains("${url}")`);
-                //$(`tr#${id}`).siblings(`:contains("${url}")`).andSelf();
-    
-            rows.children('td').css('background-color', bgColor);
-    
-            rows.each((i, row) => processedIds.push(row.id));
-            return processedIds;
-        }, rowId, url, bgColor);
-    }
+      const clickByText = async (page, text) => {
+        const escapedText = escapeXpathString(text);
+        const linkHandlers = await page.$x(`//a[contains(@class,'action-link')][contains(text(), ${escapedText})]`);
+        
+        if (linkHandlers.length > 0) {
+          await linkHandlers[0].click();
+        } else {
+          console.log(`Link not found: ${text}`);
+        }
+    };
 
     async function resaveBankInfo(url) {
-        let processedIds = await toolTab.evaluate(url => {
-            //debugger;
-            let processedIds = [];
-                
-            $(`tr:contains("${url}")`).each(async (i, row) => {
-                processedIds.push(row.id);
-                let $row = $(row);
-                
-                $(row).find('td:first > a:contains("Edit")').click();
-            
-                let checkExist = await setInterval(() => {
-                    let saveLink = $row.find('td:first > a:contains("Save")');
-                    if (saveLink) {
-                        saveLink.click();
-                        clearInterval(checkExist);
-                        await setTimeout(() => $row.remove(), 2000);
-                    }
-                }, 100);
-            });
+        let xpath_expression = `//tr[td/span[contains(text(), "${url}")]]/td[1]/a[contains(text(), "Edit")]`;
+        const linkHandlers = await toolTab.$x(xpath_expression);
+        if (linkHandlers.length > 0) {
+            for(let i in linkHandlers) {
+                let linkHandler = linkHandlers[i];
+                //edit
+                await linkHandler.click();
 
-            return processedIds;
-        }, url);
-        toolTab.waitFor(2000);
-
-        return processedIds;
+                await toolTab.waitFor(2000);
+                
+                //now save
+                //xpath_expression = `//tr[td/span[contains(text(), "${url}")]]/td[1]/a[contains(text(), "Save")]`;
+                //await toolTab.waitForXPath(xpath_expression);
+                await clickByText(toolTab, 'Save');
+                await toolTab.waitFor(2000);
+            }
+        } else {
+            console.log(`Link not found: ${xpath_expression}`);
+        }
     }
-
-    async function checkBank(bankInfo, url) {
+    
+    async function checkBank(bankInfo, url, bankName) {
         console.log("Opening bank tab");
         const bankTab = await browser.newPage();
 
         await bankTab.goto(url); 
         await bankTab.waitFor(2000);
-        const contentHandle = await bankTab.$(bankInfo.selector);
-        const content = await bankTab.evaluate(content => content.innerHTML, contentHandle);
-        await contentHandle.dispose();
+        let content = '';
+        const contentHandle = await bankTab.$(bankInfo.selector).catch(e => {
+            console.log(e);
+        });
+        if (contentHandle) {
+            content = await bankTab.evaluate(content => content.outerHTML, contentHandle);
+            await contentHandle.dispose();
+        }
+        else {
+            console.log(`${bankName} selector ${bankInfo.selector} is invalid!`);
+        }
         console.log("Closing bank tab");
         bankTab.close();
         //let content = await bankTab.$$eval(bankInfo.selector, content => content[0].outerHTML);
-        return (bankInfo.content.trim() == content.trim());
+        return (bankInfo.text.trim() == content.trim());
     }
 
-    
 
     //con.connect(err => {
     //    if (err) throw err;
         
-        logger.info('Fetching relevant banks');
-        
-        //const firstRowId = await toolTab.$$eval('#rate-table tbody tr:first-of-type', tr => tr[0].id);
+    console.log('Fetching relevant banks');
 
-        let banks = await toolTab.$$eval('#rate-table tbody tr', (trs, bank1stCharStart, banklastCharStart, pauseExeptions) => {
-            return trs.filter( tr => {
-                let bankName = tr.querySelector('td.merch-name').textContent;
-                let updateFrequency = tr.querySelector('td.update_frequency_txt').textContent;
-                let bank1stChar = bankName.charAt(0).toUpperCase();
-                
-                if (   bank1stChar >= bank1stCharStart && bank1stChar <= banklastCharStart
-                   && (updateFrequency.toLowerCase !== 'paused' || pauseExeptions.includes(bankName)) ) {   
-                    return true;
+    let banks = await toolTab.$$eval('#rate-table tbody tr', (trs, bank1stCharStart, banklastCharStart, pauseExeptions) => {
+        let banks = {};
+        //debugger;
+        trs.forEach( tr => {
+            let bankName = tr.querySelector('td.merch-name').textContent.trim();
+            let updateFrequency = tr.querySelector('td.update_frequency_txt').textContent;
+            let bank1stChar = bankName.charAt(0).toUpperCase();
+            let url = tr.querySelector('td.merch-link').textContent.trim();
+            
+            if (   bank1stChar >= bank1stCharStart && bank1stChar <= banklastCharStart
+                && (updateFrequency.toLowerCase() === 'wednesday' || pauseExeptions.includes(bankName)) 
+                && !banks.hasOwnProperty(url)) {   
+                banks[url] = {
+                    name: bankName,
+                    note: tr.querySelector('td.note').textContent.trim()
+                };
+            }
+            else {
+                $(tr).remove();
+            }
+        });
+        return banks;
+    }, bank1stCharStart, banklastCharStart, pauseExeptions);
+    
+    //console.log(banks);
+
+    //logger.info('Got %d banks.', banks.length);
+
+    /*
+    //let $ = cheerio.load(rows.join(''));
+    //let $tr = $('tr');
+    const firstRowId = await toolTab.$$eval('#rate-table tbody tr:first-of-type', tr => tr[0].id);
+    */
+    //const firstRowId = banks[0].id;
+    let urls = Object.keys(banks);
+    for(let url of urls) {
+    //while (banks.length) {
+        //let color = '';
+        let bank = banks[url];
+        if (path.extname(url) === '.pdf') {
+            //don't check pdfs for phase 1
+            console.log('pdf');
+            color = '#AED6F1';
+        }
+        else if (bank.note.includes('Rate collected within')) {
+            console.log('zipcode');
+            color = '#A9DFBF'
+        } else {
+            //check for changes
+            banksChecked++;
+            let bankInfo  = data[url];
+            if (bankInfo) {
+                console.log(`Checking ${bank.name} for changes`);
+                let contentMatches = await checkBank(bankInfo, url, bank.name);
+                if (contentMatches === true) {
+                    //re-save it
+                    console.log(`${bank.name} has not changed. Resaving.`);
+                    //await resaveBankInfo(url); 
                 }
                 else {
-                    $(tr).remove();
+                    console.log(`${bank.name} has changed!`);
+                    color = '#F8C471';
                 }
-            }).map(bank => {
-                return {
-                    id:   bank.id,
-                    name: bank.querySelector('td.merch-name').textContent,
-                    url:  bank.querySelector('td.merch-link').textContent,
-                    note: bank.querySelector('td.note').textContent
-                }
-            });
-        }, bank1stCharStart, banklastCharStart, pauseExeptions);
-        
-        //console.log(banks);
-
-        //logger.info('Got %d banks.', banks.length);
-
+            } 
+            else {
+                missingBanks.push(url);
+                console.log('No record of %s in db.', url);
+                color = '#EC7063';
+                //let bankRows = getBankRows(banks.slice(i), bank.name);
+                //let remainingBanks = bankRows.filter(id => !affectedRowIds.includes(id));
+                //banks.splice(i, bankRows, ...remainingBanks);
+                //continue;
+            }
+        }
+        await resaveBankInfo(url);
         /*
-        //let $ = cheerio.load(rows.join(''));
-        //let $tr = $('tr');
-        const firstRowId = await toolTab.$$eval('#rate-table tbody tr:first-of-type', tr => tr[0].id);
+        //process rows
+        //let remainingBankRows = banks.slice(i,i+rowsMoved).filter(b=> b.url != url);
+        let processedIds   = await changeRowColor(url, color);
+        let remainingBanks = processedIds.length > 1
+                            ? getRemainingBanks(banks, bank.name, processedIds)
+                            : [];
+        let numRowsForBank = processedIds.length + remainingBanks.length;
+        banks = remainingBanks.concat(banks.slice(numRowsForBank));
         */
-       //const firstRowId = banks[0].id;
-        //for(let bankId of banks) {
-        while (banks.length) {
-            let color = '';
-            let bank = banks[0];
-            if (path.extname(bank.url) === '.pdf') {
-                //don't check pdfs for phase 1
-                console.log('pdf');
-                color = '#AED6F1';
-            }
-            else if (bank.note.includes('Rate collected within')) {
-                console.log('zipcode');
-                color = '#A9DFBF'
-            } else {
-                //check for changes
-                let bankInfo  = data[bank.url];
-                if (bankInfo) {
-                    console.log(`Checking ${bank.name} for changes`);
-                    let contentMatches = await checkBank(bankInfo, bank.url);
-                    if (contentMatches) {
-                        //re-save it
-                        console.log(`${bank.name} has not changed. Resaving.`);
-                        await resaveBankInfo(bank.url);
-                        
-                    }
-                    else {
-                        console.log(`${bank.name} has changed!`);
-                        color = '#F8C471';
-                    }
-                } 
-                else {
-                    missingUrls++;
-                    console.log('No record of %s in db. Add it!', bank.name);
-                    color = '#EC7063';
-                    //let bankRows = getBankRows(banks.slice(i), bank.name);
-                    //let remainingBanks = bankRows.filter(id => !affectedRowIds.includes(id));
-                    //banks.splice(i, bankRows, ...remainingBanks);
-                    //continue;
-                }
-            }
-            //process rows
-            //let remainingBankRows = banks.slice(i,i+rowsMoved).filter(b=> b.url != bank.url);
-            let processedIds   = await changeRowColor(bank.id, bank.url, color);
-            let remainingBanks = processedIds.length > 1
-                               ? getRemainingBanks(banks, bank.name, processedIds)
-                               : [];
-            let numRowsForBank = processedIds.length + remainingBanks.length;
-            banks = remainingBanks.concat(banks.slice(numRowsForBank));
-        };
-       
-        logger.info('Processing completed. Of %d bank rows, %d URLs were missing from the DB.', banks.length, missingUrls);
-   // con.end();
-
+    }
+    
+    console.log(`Processed ${urls.length} banks between ${bank1stCharStart} and ${banklastCharStart}.`);
+    console.log(`Of ${banksChecked} banks checked, ${missingBanks.length} were missing from the DB:`);
+    console.log(missingBanks);
+};
     //setTimeout(async () => {
     //    await browser.close();
     //}, 60000 * 4);
-}
 run();
